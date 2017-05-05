@@ -11,12 +11,15 @@ from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.util import MLUtils
 from pyspark.conf import SparkConf
 from pyspark.context import SparkContext
+from pyspark.sql.session import SparkSession
+
 
 if __name__ == '__main__':
     # conf = SparkConf().setAppName('pyspark_test').setMaster('spark://10.10.10.196:7077')
     # sc = SparkContext(conf)
     # sc = SparkContext("spark://10.10.10.196:7077", "NetworkWordCount")
     sc = SparkContext('local', 'test')
+    spark = SparkSession(sc)
     dv1 = np.array([1, 0, 3])
     dv2 = [1, 0, 3]
     sv1 = Vectors.sparse(3, [0, 2], [1, 3])
